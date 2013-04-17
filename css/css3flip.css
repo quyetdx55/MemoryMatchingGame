@@ -1,0 +1,42 @@
+1	+#game{
+2	+	background: #9c9;
+3	+	padding: 5px;
+4	+}
+5	+/*Define the 3D perspective wiew and dimension of each card*/
+6	+.card {
+7	+	-webkit-perspective: 600;
+8	+	width: 80px;
+9	+	height: 120px;
+10	+}
+11	+.face{
+12	+	border-radius: 10px;
+13	+	width: 100%;
+14	+	height: 100%;
+15	+	position: absolute;
+16	+	-webkit-transition: all .3s;
+17	+	-webkit-backface-visibility: hidden;
+18	+}
+19	+.front {
+20	+	background: #966;
+21	+	z-index: 10;
+22	+}
+23	+.back {
+24	+	background: #eaa;
+25	+	-webkit-transform: rotate3d(0,1,0,-180deg);
+26	+	z-index: 8;
+27	+}
+28	+.card-flipped .front {
+29	+	-webkit-transform: rotate3d(0,1,0,180deg);
+30	+	z-index: 8;
+31	+}
+32	+.card-flipped .back {
+33	+	-webkit-transform: rotate3d(0,1,0,0deg);
+34	+	z-index: 10;
+35	+}
+36	+.cardAK {
+37	+	background: url(../images/AK.png);
+38	+}
+39	+.cardAQ {
+40	+	background: url(../images/AQ.png);
+41	+}
+42	\ No newline at end of file
