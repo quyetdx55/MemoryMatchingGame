@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Orbitron-Light'), local('Orbitron-Regular'), url(94ug0rEgQO_WuI_xKJMFc_esZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Orbitron-Bold'), url(Y82YH_MJJWnsH2yUA5AuYYbN6UDyHWBl620a-IRfuBk.woff) format('woff');
+}

@@ -1,30 +1,98 @@
-+<!DOCTYPE html>
-+<html lang="en">
-+	<head>
-+		<meta charset="utf-8">
-+		<title>CSS3 Matching Game</title>
-+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold&subset=latin' rel='stylesheet' type='text/css'>
-+		<link rel="stylesheet" href="css/matchGame.css"/>
-+	</head>
-+	<body>
-+		<header>
-+			<h1>Matching Game</h1>
-+		</header>
-+		
-+		<section id="game">
-+			<div id="cards">
-+				<div class="card">
-+					<div class="face front"></div>
-+					<div class="face back"></div>
-+				</div>
-+			</div> <!-- #cards -->
-+		</section> <!-- #game -->
-+		<footer>
-+			
-+		</footer>
-+		
-+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-+		<script src="js/matchGame.js"></script>
-+	</body>
-+</html>
-\ No newline at end of file
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3 Matching Game</title>
+		<link href='css/letterFont.css' rel='stylesheet' type='text/css'>
+		<link href="css/orbitron.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/matchGame.css"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<header>
+			<h1>Matching Game</h1>
+		</header>
+		
+		<div id="timer">
+			Elapsed time: <span id="elapsed-time">00:00</span>
+		</div>
+		
+		<section id="game">
+			<div id="cards">
+			
+			</div> <!-- #cards -->
+		</section> <!-- #game -->
+		
+		<section id="popup" class="hide">
+			<div id="popup-bg">
+			</div>
+			<div id="popup-box">
+				<div class="ribbon hide">
+					<div class="ribbon-body">
+						<span>New Record</span>
+					</div>
+					<div class="triangle"></div>
+				</div>
+				
+				<div id="popup-box-content">
+					<h1>You Won!</h1>
+					<p>Your Score:</p>
+					<p><span class='score'>0</span></p>
+					<p>
+						<small>
+							Last Score: <span class='last-score'>20</span><br>
+							Saved on: <span class="saved-time">1/5/2013 12:00</span>
+						</small>
+					</p>
+					<button id="playAgain" class="btn btn-large btn-primary" type="button">Play Again</button>
+					<button id="mainMenu" class="btn btn-large btn-primary" type="button">Main Menu</button>
+				</div>
+			</div>
+		</section>
+		
+		<!--Menu game-->
+		<section id="menuGame">
+			<div id="popup-bg">
+			</div>
+			<div id="menuGame-box">
+				<h1>Menu Game</h1>
+				<!--Play game button-->
+				<button id="playButton" class="btn btn-large btn-primary" type="button">Play Game</button>
+				<!--Resume game (if we have-->
+				<button id="resumeButton" class="btn btn-large btn-primary" type="button">Resume Game</button>
+				<!--Setting-->
+				<button id="settingButton" class="btn btn-large btn-primary" type="button">Setting</button>
+				<!--HighScore-->
+				<button id="highButton" class="btn btn-large btn-primary" type="button">High Score</button>
+			</div>
+		</section>
+		
+		<div id="gameModeBG" class="hide">
+			<div id="gameMode-box">
+				<button id="playButtonS" class="btn btn-large btn-primary" type="button">Single Play Mode</button>
+				<button id="playButtonM" class="btn btn-large btn-primary" type="button">Multiplayer Play Mode</button>
+				<div id="settingMode" class="hide">
+					<input id="userName" class="hide" type="text" placeholder="Type your name!">
+					<h4>Choose size of board</h4>
+					<button id="board1" class="btn btn-small" type="button"><b>4x3</b></button>
+					<button id="board2" class="btn btn-small" type="button"><b>6x3</b></button>
+					<button id="board3" class="btn btn-small" type="button"><b>8x3</b></button>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			
+		</footer>
+		
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/socket.io.js"></script>
+		<script type="text/javascript" src="js/matchGame.js"></script>
+		<script>
+			$(document).ready(function(){
+				MatchGame.initialize('http://localhost/');
+			});
+		</script>
+	</body>
+</html>
