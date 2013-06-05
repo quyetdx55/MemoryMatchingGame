@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
@@ -9,11 +10,35 @@ var datas = {};
 server.listen(80);
 //1: start(Join or createnew), 2: create new, 3: move, 4: pause, 5: exit
 //6: start, 7: move, 8: pause, 9: exit
+=======
+/*var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
+
+server.listen(80);
+
+app.use("/", express.static(__dirname + '/public'));
+
+io.sockets.on('connection', function (socket) {
+  socket.on('msg', function (data) {
+    io.sockets.emit('new', data);
+  });
+});*/
+var express = require('express');
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
+
+server.listen(8080);
+
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 app.use("/", express.static(__dirname));
 
 io.sockets.on('connection', function(socket){
 	//socket.emit('news', {hello: 'world'});
 	socket.on('msg', function(data){
+<<<<<<< HEAD
 		var newData = new Array();
 		var i = 0;
 		for(var key in data){
@@ -60,3 +85,9 @@ io.sockets.on('connection', function(socket){
 function shuffle(){
 	return 0.5 - Math.random();
 }
+=======
+		io.sockets.emit('new', data);
+		//console.log(data);
+	});
+});
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0

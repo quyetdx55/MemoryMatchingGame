@@ -7,6 +7,7 @@ matchingGame.savingObject.removedCards = [];
 matchingGame.savingObject.currentElapsedTime = 0;
 
 matchingGame.deck = [
+<<<<<<< HEAD
 	'cardAK', 'cardCK', 
 	'cardAQ', 'cardCQ',
 	'cardAJ', 'cardCJ',
@@ -225,6 +226,75 @@ menuGame.numberOnRow = 4; //so luong card tren mot hang
 		}		
 	};
 }() );
+=======
+	'cardAK', 'cardAK', 
+	'cardAQ', 'cardAQ',
+	'cardAJ', 'cardAJ',
+	'cardBK', 'cardBK',
+	'cardBQ', 'cardBQ',
+	'cardBJ', 'cardBJ',
+];
+
+$(document).ready(function(){
+	matchingGame.deck.sort(shuffle);
+	
+	//re-create the saved deck
+	var savedObject = savedSavingObject();
+	if(savedObject != undefined){
+		matchingGame.deck = savedObject.deck;
+	}
+	//copying the deck into saving object.
+	matchingGame.savingObject.deck = matchingGame.deck.slice();
+	//clone 12 copies of the card
+	for(var i = 0; i < 11; i++){
+		$(".card:first-child").clone().appendTo("#cards");
+	}
+	
+	//initialize each card's position
+	$("#cards").children().each(function(index){
+		//align the cards to be 4x3 ourselves.
+		$(this).css({
+			"left": ($(this).width()  + 20) * (index % 4),
+			"top" : ($(this).height() + 20) * Math.floor(index / 4)
+		});
+		
+		//get pattern from the shuffled deck
+		var pattern = matchingGame.deck.pop();
+		
+		//visually apply the pattern on the card's back side 
+		$(this).find(".back").addClass(pattern);
+		
+		//embed the pattern data into the DOM element 
+		$(this).attr("data-pattern", pattern);
+		
+		//save the index into the DOM element, so we know which is the next card.
+		$(this).attr("data-card-index", index);
+		//Listen the click event on each card DIV element.
+		$(this).click(selectCard);	
+	});
+	
+	//remove the cards that were removed in savedObject.
+	if(savedObject != undefined){
+		matchingGame.savingObject.removedCards = savedObject.removedCards
+		//find those cards and remove them.
+		for(var i in matchingGame.savingObject.removedCards){
+			$(".card[data-card-index="+matchingGame.savingObject.
+			removedCards[i]+"]").remove();
+		}
+	}
+	//reset the timer
+	matchingGame.elapsedTime = 0;
+	
+	//restore the saved elapsed time
+	if(savedObject != undefined){
+		matchingGame.elapsedTime = savedObject.currentElapsedTime;
+		matchingGame.savingObject.currentElapsedTime = savedObject
+		.currentElapsedTime
+	}
+	//start the timer
+	matchingGame.timer = setInterval(countTimer, 1000);
+});
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 
 function countTimer(){
 	matchingGame.elapsedTime++;
@@ -256,6 +326,24 @@ function shuffle(){
 	return 0.5 - Math.random();
 }
 
+<<<<<<< HEAD
+=======
+function selectCard(){
+	//we do nothing if there are already two card flipped.
+	if($(".card-flipped").size() > 1){
+		return;
+	}
+	var datas = this;
+	alert(datas.attributes[1].value);
+	$(this).addClass("card-flipped");
+	
+	//check the pattern of both flipped card 0.7s later
+	if($(".card-flipped").size()==2){
+		setTimeout(checkPattern, 700);
+	}
+}
+
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 function checkPattern(){
 	if(isMatchPattern()){
 		$(".card-flipped").removeClass("card-flipped").addClass("card-removed");
@@ -264,7 +352,10 @@ function checkPattern(){
 		$(".card-flipped").removeClass("card-flipped");
 	}
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 function isMatchPattern(){
 	var cards=$(".card-flipped");
 	var pattern=$(cards[0]).data("pattern");
@@ -272,7 +363,10 @@ function isMatchPattern(){
 	
 	return (pattern == anotherPattern);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 function removeTookCards(){
 	//add the removed card into the array which store which cards are removed
 	$(".card-removed").each(function(){
@@ -287,7 +381,10 @@ function removeTookCards(){
 }
 
 function gameOver(){
+<<<<<<< HEAD
 	//MatchGame.send(false);
+=======
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 	//stop the timer
 	clearInterval(matchingGame.timer);
 	
@@ -363,6 +460,7 @@ function savedSavingObject(){
 		savingObject = JSON.parse(savingObject);
 	}
 	return savingObject;
+<<<<<<< HEAD
 }
 
 //Start game
@@ -436,4 +534,6 @@ function startGame(){
 		//start the timer*/
 		matchingGame.timer = setInterval(countTimer, 1000);
 	}
+=======
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 }

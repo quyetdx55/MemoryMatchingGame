@@ -1,7 +1,11 @@
 body{
 	text-align: center;
 	font-family: 'Droid Serif', arial, serif;
+<<<<<<< HEAD
 	background: #a46740 url(../img/bg.jpg);
+=======
+	background: #a46740 url(../images/bg.jpg);
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 	color: #ccc;
 	text-shadow: 0 1px 0 #222;
 }
@@ -30,7 +34,11 @@ a:hover{
 	-webkit-box-shadow: 0 -1px 0 #999, 0 1px 0 #999, inset 0 1px 6px #000;
 	
 	position: relative;
+<<<<<<< HEAD
 	background: #232 url(../img/table.jpg);
+=======
+	background: #232 url(../images/table.jpg);
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 	width: 500px;
 	height: 460px;
 	margin: 0 auto;
@@ -58,10 +66,13 @@ a:hover{
 	-webkit-transition: all .3s;
 	transition: all .3s;
 }
+<<<<<<< HEAD
 .card.hide{
 	background: rgba(0,0,0,0);
 	visibility: hidden;		
 }
+=======
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 .face {
 	border-radius: 10px;
 	width: 100%;
@@ -80,11 +91,19 @@ a:hover{
 	backface-visibility: hidden;
 }
 .front{
+<<<<<<< HEAD
 	background: #999 url(../img/deck.png) 0 -480px;
 	z-index: 10;
 }
 .back {
 	background: #efefef url(../img/deck.png);
+=======
+	background: #999 url(../images/deck.png) 0 -480px;
+	z-index: 10;
+}
+.back {
+	background: #efefef url(../images/deck.png);
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 	
 	-moz-transform: rotate3d(0,1,0,-180deg);
 	-webkit-transform: rotate3d(0,1,0,-180deg);
@@ -163,7 +182,11 @@ a:hover{
 	position: relative;
 	width: 400px;
 	height: 300px;
+<<<<<<< HEAD
 	background: #ccc url(../img/popup_bg.jpg);
+=======
+	background: #ccc url(../images/popup_bg.jpg);
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 	
 	border-radius: 10px;
 	
@@ -197,7 +220,11 @@ a:hover{
 	float: left;
 	position: absolute;
 	left: -7px;
+<<<<<<< HEAD
 	top: 120px;
+=======
+	top: 165px;
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
 	z-index: 0;
 	
 	font-size: .5em;
@@ -227,6 +254,7 @@ a:hover{
 	border-width: 6px;
 	border-color: transparent #882011 transparent transparent;
 	z-index: -1;
+<<<<<<< HEAD
 }
 
 #menuGame {
@@ -373,3 +401,6 @@ a:hover{
 	background: rgba(0,0,0,0);
 	visibility: hidden;		
 }
+=======
+}
+>>>>>>> f49b86272b41372d2835482698e095c1c372acf0
